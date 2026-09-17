@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Lens — AI 이미지 편집</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="top">
+    <div class="brand">🔍 <b>Lens</b><span>AI 이미지 편집</span></div>
+    <div class="actions">
+      <button class="ghost">실행 취소</button>
+      <button class="primary">⬇ 내보내기</button>
+    </div>
+  </header>
+
+  <main class="layout">
+    <aside class="tools">
+      <h3>AI 도구</h3>
+      <button class="tool" data-fx="bg-remove"><span>✂️</span><div><b>배경 제거</b><em>한 번에 배경만</em></div></button>
+      <button class="tool" data-fx="upscale"><span>🔍</span><div><b>4× 업스케일</b><em>해상도 향상</em></div></button>
+      <button class="tool" data-fx="restore"><span>🩹</span><div><b>오래된 사진 복원</b><em>흠집 · 색바램 복구</em></div></button>
+      <button class="tool" data-fx="colorize"><span>🎨</span><div><b>흑백 → 컬러</b><em>AI 자동 채색</em></div></button>
+      <button class="tool" data-fx="object-remove"><span>🧽</span><div><b>객체 지우기</b><em>드래그로 영역 선택</em></div></button>
+      <button class="tool" data-fx="style"><span>🖼</span><div><b>스타일 변환</b><em>유화 · 수채화 · 만화</em></div></button>
+
+      <h3 style="margin-top:24px">필터</h3>
+      <div class="filters">
+        <button class="filter active" data-f="none">원본</button>
+        <button class="filter" data-f="vivid">생생함</button>
+        <button class="filter" data-f="mono">모노</button>
+        <button class="filter" data-f="warm">웜톤</button>
+        <button class="filter" data-f="cool">쿨톤</button>
+        <button class="filter" data-f="vintage">빈티지</button>
+      </div>
+
+      <h3 style="margin-top:24px">조정</h3>
+      <div class="adj">
+        <label>밝기 <input type="range" min="-100" max="100" value="0" data-adj="bright"/></label>
+        <label>대비 <input type="range" min="-100" max="100" value="0" data-adj="contrast"/></label>
+        <label>채도 <input type="range" min="-100" max="100" value="0" data-adj="saturate"/></label>
+        <label>색조 <input type="range" min="0" max="360" value="0" data-adj="hue"/></label>
+      </div>
+    </aside>
+
+    <section class="canvas">
+      <div class="canvas-head">
+        <div class="tabs">
+          <button class="tab active">edit-1.jpg</button>
+        </div>
+        <div class="zoom">
+          <button>−</button>
+          <span>100%</span>
+          <button>+</button>
+        </div>
+      </div>
+      <div class="stage">
+        <div id="img" class="img"></div>
+        <div id="overlay" class="overlay" hidden>
+          <div class="spinner"></div>
+          <p id="oText">AI 처리 중...</p>
+          <div class="prog"><i id="prog"></i></div>
+          <span id="pPct">0%</span>
+        </div>
+      </div>
+      <div class="status">
+        <span>크기: 2400 × 1600</span>
+        <span>형식: JPEG</span>
+        <span id="appliedFilter">필터: 원본</span>
+      </div>
+    </section>
+
+    <aside class="history">
+      <h3>최근 작업</h3>
+      <ul id="hist">
+        <li class="hist active"><div class="thumb t1"></div><div><b>원본</b><span>방금 전</span></div></li>
+      </ul>
+    </aside>
+  </main>
+
+  <script src="script.js"></script>
+<script type="module" src="https://static.cloudflareinsights.com/beacon.min.js/v31edd6df95cf4e85bb4c19e7a9bdbcba1788362987495" integrity="sha512-iIg7k2xntmwu6/uSb5tpc/hySgZc4eoL31yB29W6tJFo2akwjPWcEqnCEdJvGexCL0KEQwVYv5BlowfhVz26hg==" data-cf-beacon='{"version":"2024.11.0","token":"c7ff09459b034bca86d316da146b68be","r":1,"spa":2}' crossorigin="anonymous"></script>
+</body>
+</html>
